@@ -3,14 +3,14 @@ const app = express();
 
 // Configuração do Firebase
 const admin = require('firebase-admin');
-const serviceAccount = require('./nodetrabalhofb-firebase-adminsdk-ryjpu-35759d7d2f.json');
+const serviceAccount = require('C:\\Users\\marcelo_gomes-jun1\\Desktop\\NodeTrabalhoFB\\serviceAccountKey.json');
 
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Importar rotas
-const produtosRoutes = require('./routes/produtosRoutes');
+const produtosRoutes = require('./src/routes/produtosRoutes');
 
 // Usar rotas
 app.use('/api', produtosRoutes);
