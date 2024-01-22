@@ -13,12 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 const produtosRoutes = require('./src/routes/produtosRoutes');
 const entradaEstoqueRoutes = require('./src/routes/entradaEstoqueRoutes');
 const saidaEstoqueRoutes = require('./src/routes/saidaEstoqueRoutes');
-
+const clientesRoutes = require('./src/routes/clientesRoutes');
 
 // Usar rotas
 app.use('/api', produtosRoutes);
 app.use('/api', entradaEstoqueRoutes);
 app.use('/api', saidaEstoqueRoutes);
+app.use('/api', clientesRoutes);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;
