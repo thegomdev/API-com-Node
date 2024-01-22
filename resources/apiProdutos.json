@@ -8,143 +8,508 @@
 	},
 	"item": [
 		{
-			"name": "Criar Produto",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome_produto\": \"Sabão em pó OMO\",\r\n    \"descricao\": \"Lava roupas\",\r\n    \"preco_unitario\": 14.00\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Entradas",
+			"item": [
+				{
+					"name": "Adicionando Entrada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_produto\": \"De4tkFHaCAmzNnMRK03T\",\r\n    \"quantidade\": 20,\r\n    \"data_entrada\":\"2024-01-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/entradas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"entradas"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/produtos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"produtos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obter Todos os Produtos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:3000/api/produtos",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"produtos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obter Produto por ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/produtos/:id",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"produtos",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "iPdvuGBcu0fNmh4q9D8n"
+				{
+					"name": "Obter Todas as entradas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/entradas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"entradas"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Atualizar Produto",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome_produto\": \"Teste22\",\r\n    \"descricao\": \"Descrição do Produto de teste2\",\r\n    \"preco_unitario\": 100.99\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/produtos/:id",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"produtos",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "iPdvuGBcu0fNmh4q9D8n"
+				{
+					"name": "Obter entrada por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/entradas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"entradas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "i8WSIuv5BDSgVqUeVJP4"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar entrada",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/entradas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"entradas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "UgJBTxALFAsXYkxNXAa1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Deletar Produto",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/produtos/:id",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"produtos",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_produto\": \"Sabonete liquido\",\r\n    \"descricao\": \"Sabonete liquido\",\r\n    \"preco_unitario\":11.0\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos"
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Produto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/produtos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7CrqUa7rW7HhSmZNBw4w"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/produtos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "Brgi8mkjjct561CUJyCG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_produto\": \"Teste22\",\r\n    \"descricao\": \"Descrição do Produto de teste2\",\r\n    \"preco_unitario\": 100.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/produtos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "iPdvuGBcu0fNmh4q9D8n"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Saidas",
+			"item": [
+				{
+					"name": "Adicionando Saidas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_produto\": \"De4tkFHaCAmzNnMRK03T\",\r\n    \"quantidade\": 20,\r\n    \"data_saida\":\"2024-01-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/saidas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Todas as saidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/saidas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter saida por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/saidas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "j0uvnclwG3ZuzKv2JsPbaaaa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar saida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/saidas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "j0uvnclwG3ZuzKv2JsPb"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Adicionando Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_cliente\": \"Marcelo Gomes Junior\",\r\n    \"endereco\": \"Rua dos Caçadores\",\r\n    \"telefone\":47999332457\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Todos os cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter cliente por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "SdKvxLmbR5uXcjpV7kNI"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_cliente\": \"Daniel Gomes Junior\",\r\n    \"endereco\": \"Água verde\",\r\n    \"telefone\":4799999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "iPdvuGBcu0fNmh4q9D8n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "SdKvxLmbR5uXcjpV7kNI"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
