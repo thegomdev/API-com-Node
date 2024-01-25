@@ -19,7 +19,7 @@ const ClientesController = {
     // método para obter todos os clientes.
     getAllClientes: async (req, res) => {
         try {
-            // lista todas as saidas na coleção 'clientes'.
+            // lista todos os clientes na coleção 'clientes'.
             const clientesSnapshot = await db.collection('clientes').get();
             // converte os documentos em objetos e os adiciona a um array.
             const clientes = [];
