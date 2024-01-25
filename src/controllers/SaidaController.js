@@ -4,17 +4,32 @@ const SaidaController = {
     // criando nova saida.
     createSaida: async (req, res) => {
         try {
-            // cria uma lista na aba coleção 'saidas'.
+            const { id_produto, ...outrasInformacoes } = req.body;
+
+            // Verifica se o produto com o id_produto existe no Firestore.
+            const produtoSnapshot = await db.collection('produtos').doc(id_produto).get();
+
+            if (!produtoSnapshot.exists) {
+                return res.status(400).json({ error: 'Produto não encontrado.' });
+            }
+            // O produto existe, então pode continuar criando a saida.
+            // Cria uma lista na aba coleção 'saida'.
             const SaidaRef = db.collection('saidas').doc();
-            // define os dados do produto no documento recém-criado.
-            await SaidaRef.set(req.body);
-            // retorna uma resposta indicando sucesso e o ID do novo produto.
-            res.status(201).json({ id: SaidaRef.id, ...req.body });
+            // Define os dados do produto no documento recém-criado.
+            await SaidaRef.set({
+                id_produto,
+                ...outrasInformacoes,
+            });
+            // Retorna uma resposta indicando sucesso e o ID da nova saida.
+            res.status(201).json({ id: SaidaRef.id, id_produto, ...outrasInformacoes });
         } catch (error) {
-            // caso de algum erro, retorna uma resposta de erro do servidor (500).
+            // Caso de algum erro, retorna uma resposta de erro do servidor (500).
             res.status(500).send(error.message);
         }
     },
+
+
+
 
     // método para obter todas as saidas.
     getAllSaidas: async (req, res) => {

@@ -4,14 +4,26 @@ const EntradaController = {
     // criando nova entrada.
     createEntrada: async (req, res) => {
         try {
-            // cria uma lista na aba coleção 'entrada'.
+            const { id_produto, ...outrasInformacoes } = req.body;
+
+            // Verifica se o produto com o id_produto existe no Firestore.
+            const produtoSnapshot = await db.collection('produtos').doc(id_produto).get();
+
+            if (!produtoSnapshot.exists) {
+                return res.status(400).json({ error: 'Produto não encontrado.' });
+            }
+            // O produto existe, então pode continuar criando a entrada.
+            // Cria uma lista na aba coleção 'entrada'.
             const EntradaRef = db.collection('entradas').doc();
-            // define os dados do produto no documento recém-criado.
-            await EntradaRef.set(req.body);
-            // retorna uma resposta indicando sucesso e o ID do novo produto.
-            res.status(201).json({ id: EntradaRef.id, ...req.body });
+            // Define os dados do produto no documento recém-criado.
+            await EntradaRef.set({
+                id_produto,
+                ...outrasInformacoes,
+            });
+            // Retorna uma resposta indicando sucesso e o ID da nova entrada.
+            res.status(201).json({ id: EntradaRef.id, id_produto, ...outrasInformacoes });
         } catch (error) {
-            // caso de algum erro, retorna uma resposta de erro do servidor (500).
+            // Caso de algum erro, retorna uma resposta de erro do servidor (500).
             res.status(500).send(error.message);
         }
     },

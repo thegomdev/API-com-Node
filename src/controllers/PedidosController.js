@@ -1,17 +1,44 @@
 const db = require('../../firebaseConfig');
 
 const PedidoController = {
-
-    
-   // criando novo pedido.
+    // criando novo pedido.
     createPedido: async (req, res) => {
         try {
-            // cria uma lista na aba coleção 'pedidos'.
+            const { id_cliente, produto1, produto2, ...outrasInformacoes } = req.body;
+
+            // verifica se o cliente com o id_cliente existe no Firestore.
+            const clienteSnapshot = await db.collection('clientes').doc(id_cliente).get();
+
+            if (!clienteSnapshot.exists) {
+                return res.status(400).json({ error: 'Cliente não encontrado.' });
+            }
+
+            // verifica se o produto1 existe no Firestore.
+            const produto1Snapshot = await db.collection('produtos').doc(produto1).get();
+
+            if (!produto1Snapshot.exists) {
+                return res.status(400).json({ error: 'Produto1 não encontrado.' });
+            }
+
+            // verifica se o produto2 existe no Firestore.
+            const produto2Snapshot = await db.collection('produtos').doc(produto2).get();
+
+            if (!produto2Snapshot.exists) {
+                return res.status(400).json({ error: 'Produto2 não encontrado.' });
+            }
+
+            // todos os IDs estão presentes, então pode continuar criando o pedido.
+            // tria uma lista na aba coleção 'pedidos'.
             const PedidoRef = db.collection('pedidos').doc();
-            // define os dados do produto no documento recém-criado.
-            await PedidoRef.set(req.body);
-            // retorna uma resposta indicando sucesso e o ID do novo produto.
-            res.status(201).json({ id: PedidoRef.id, ...req.body });
+            // tefine os dados do pedido no documento recém-criado.
+            await PedidoRef.set({
+                id_cliente,
+                produto1,
+                produto2,
+                ...outrasInformacoes,
+            });
+            // retorna uma resposta indicando sucesso e o ID do novo pedido.
+            res.status(201).json({ id: PedidoRef.id, id_cliente, produto1, produto2, ...outrasInformacoes });
         } catch (error) {
             // caso de algum erro, retorna uma resposta de erro do servidor (500).
             res.status(500).send(error.message);
