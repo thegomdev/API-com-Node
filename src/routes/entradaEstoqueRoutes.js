@@ -11,6 +11,9 @@ router.get('/entradas', EntradaController.getAllEntradas);
 // Rota para obter uma entrada pelo ID
 router.get('/entradas/:id', EntradaController.getEntradaById);
 
+// Rota para atualizar uma entrada
+router.put('/entradas/:id', EntradaController.updateEntrada);
+
 // Rota para deletar uma entrada
 router.delete('/entradas/:id', EntradaController.deleteEntrada);
 

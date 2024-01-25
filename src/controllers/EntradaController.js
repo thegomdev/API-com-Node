@@ -64,6 +64,21 @@ const EntradaController = {
             res.status(500).send(error.message);
         }
     },
+
+        // Método para atualizar uma entrada pelo ID
+        updateEntrada: async (req, res) => {
+            try {
+                // cria uma referência para o documento com o ID especificado.
+                const entradaRef = db.collection('entradas').doc(req.params.id);
+                // atualiza os dados do produto com os dados fornecidos na requisição.
+                await entradaRef.update(req.body);
+                // retorna uma resposta indicando sucesso.
+                res.status(200).send('Entrada atualizada com sucesso');
+            } catch (error) {
+                // caso de algum erro, retorna uma resposta de erro do servidor (500).
+                res.status(500).send(error.message);
+            }
+        },
     
     // excluir uma entrada pelo ID.
     deleteEntrada: async (req, res) => {

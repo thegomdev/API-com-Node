@@ -67,6 +67,21 @@ const SaidaController = {
             res.status(500).send(error.message);
         }
     },
+
+            // Método para atualizar uma saida pelo ID
+            updateSaida: async (req, res) => {
+                try {
+                    // cria uma referência para o documento com o ID especificado.
+                    const saidaRef = db.collection('saidas').doc(req.params.id);
+                    // atualiza os dados do produto com os dados fornecidos na requisição.
+                    await saidaRef.update(req.body);
+                    // retorna uma resposta indicando sucesso.
+                    res.status(200).send('Saida atualizada com sucesso');
+                } catch (error) {
+                    // caso de algum erro, retorna uma resposta de erro do servidor (500).
+                    res.status(500).send(error.message);
+                }
+            },
     
     // excluir uma saida pelo ID.
     deleteSaida: async (req, res) => {

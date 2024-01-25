@@ -11,6 +11,9 @@ router.get('/saidas', SaidaController.getAllSaidas);
 // Rota para obter uma entrada pelo ID
 router.get('/saidas/:id', SaidaController.getSaidaById);
 
+// Rota para atualizar uma saida
+router.put('/saidas/:id', SaidaController.updateSaida);
+
 // Rota para deletar uma entrada
 router.delete('/saidas/:id', SaidaController.deleteSaida);
 

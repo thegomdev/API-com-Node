@@ -11,6 +11,9 @@ router.get('/pedidos', PedidoController.getAllPedidos);
 // Rota para obter um pedido pelo ID
 router.get('/pedidos/:id', PedidoController.getPedidoById);
 
+// Rota para atualizar um pedido
+router.put('/pedidos/:id', PedidoController.updatePedido);
+
 // Rota para deletar um pedido
 router.delete('/pedidos/:id', PedidoController.deletePedido);
 

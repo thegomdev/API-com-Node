@@ -82,20 +82,35 @@ const PedidoController = {
         }
     },
 
-        // excluir um pedido pelo ID.
-        deletePedido: async (req, res) => {
-            try {
-                // cria uma referência para o documento com o ID especificado.
-                const pedidoRef = db.collection('pedidos').doc(req.params.id);
-                // exclui o documento associado a referência.
-                await pedidoRef.delete();
-                // retorna uma resposta indicando sucesso.
-                res.status(200).send('Pedido deletado com sucesso');
-            } catch (error) {
-                // caso de algum erro, retorna uma resposta de erro do servidor (500).
-                res.status(500).send(error.message);
-            }
+    // Método para atualizar um pedido pelo ID
+    updatePedido: async (req, res) => {
+        try {
+            // cria uma referência para o documento com o ID especificado.
+            const pedidoRef = db.collection('pedidos').doc(req.params.id);
+            // atualiza os dados do produto com os dados fornecidos na requisição.
+            await pedidoRef.update(req.body);
+            // retorna uma resposta indicando sucesso.
+            res.status(200).send('Pedido atualizado com sucesso');
+        } catch (error) {
+            // caso de algum erro, retorna uma resposta de erro do servidor (500).
+            res.status(500).send(error.message);
         }
+    },
+
+    // excluir um pedido pelo ID.
+    deletePedido: async (req, res) => {
+        try {
+            // cria uma referência para o documento com o ID especificado.
+            const pedidoRef = db.collection('pedidos').doc(req.params.id);
+            // exclui o documento associado a referência.
+            await pedidoRef.delete();
+            // retorna uma resposta indicando sucesso.
+            res.status(200).send('Pedido deletado com sucesso');
+        } catch (error) {
+            // caso de algum erro, retorna uma resposta de erro do servidor (500).
+            res.status(500).send(error.message);
+        }
+    }
 
 };
 

@@ -112,6 +112,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Atualizar Entrada",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_produto\": \"Teste22\",\r\n    \"descricao\": \"Descrição do Produto de teste2\",\r\n    \"preco_unitario\": 100.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/produtos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"produtos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "iPdvuGBcu0fNmh4q9D8n"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -364,6 +400,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Atualizar Saida",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_produto\": \"V8tno8jrXQmQFTIYSufZ\",\r\n    \"quantidade\": 23,\r\n    \"data_saida\":\"2024-01-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/saidas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6CsiCzkWhSxQElWBTvba"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -611,6 +683,42 @@
 								{
 									"key": "id",
 									"value": "UgJBTxALFAsXYkxNXAa1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_produto\": \"V8tno8jrXQmQFTIYSufZ\",\r\n    \"quantidade\": 23,\r\n    \"data_saida\":\"2024-01-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/saidas/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saidas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6CsiCzkWhSxQElWBTvba"
 								}
 							]
 						}
