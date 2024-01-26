@@ -1,5 +1,8 @@
+// importa as configurações do firebase do arquivo firebaseConfig para estabelecer a conexão com o firestore.
 const db = require('../../firebaseConfig');
 
+
+ // criando um objeto
 const EntradaController = {
     // criando nova entrada.
     createEntrada: async (req, res) => {

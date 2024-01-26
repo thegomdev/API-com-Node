@@ -1,5 +1,8 @@
+// importando o módulo express.
 const express = require('express');
+// criando um objeto router do express para gerenciar rotas.
 const router = express.Router();
+// importando o controlador de saída para lidar com as operações relacionadas às saídas.
 const ClientesController = require('../controllers/ClientesController');
 
 
@@ -20,4 +23,6 @@ router.put('/clientes/:id', ClientesController.updateCliente);
 router.delete('/clientes/:id', ClientesController.deleteCliente);
 
 
+
+// exporta o objeto do roteador do express para ser usado em outros arquivos.
 module.exports = router;

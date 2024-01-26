@@ -1,4 +1,6 @@
+// importando o módulo express.
 const express = require('express');
+// criando uma instância do aplicativo Express.
 const app = express();
 
 // Configuração do Firebase
