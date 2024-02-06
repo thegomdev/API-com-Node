@@ -25,6 +25,9 @@ Faça pedidos de produtos, especificando os itens desejados, quantidades e detal
 Acompanhe o status dos pedidos e obtenha informações detalhadas sobre as transações.
 
 
+API com Node usando Postman para o teste da API, cadastrando e atualizando no Firebase.
+
+
 Status do Projeto: Em desenvolvimento.
 (Release Notes):
 1.01 22/01/2024
